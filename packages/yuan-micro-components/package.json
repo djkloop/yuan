@@ -1,0 +1,17 @@
+{
+  "name": "yuan-micro-components",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "umd:main": "dist/yuan.micro-components.umd.production.js",
+  "unpkg": "dist/yuan.micro-components.umd.production.js",
+  "jsdelivr": "dist/yuan.micro-components.umd.production.js",
+  "jsnext:main": "esm",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  }
+}

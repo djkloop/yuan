@@ -1,0 +1,16 @@
+// Vitest Snapshot v1
+
+exports[`page.element > project.json 1`] = `
+{
+  "description": "New Project Description",
+  "name": "New Project",
+  "pages": [
+    {
+      "description": "New Page Description",
+      "elements": [],
+      "id": "PageID",
+      "name": "New Page",
+    },
+  ],
+}
+`;

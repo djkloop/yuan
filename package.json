@@ -1,5 +1,5 @@
 {
-  "name": "Yuan",
+  "name": "yuan",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
@@ -10,16 +10,44 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "build:store": "turbo run build --filter=yuan-store",
+    "build:shared": "turbo run build --filter=yuan-shared"
   },
   "devDependencies": {
-    "eslint-config-custom": "workspace:*",
+    "@icon-park/vue-next": "^1.4.2",
+    "@iconify-json/logos": "^1.1.16",
+    "@unocss/preset-attributify": "^0.45.21",
+    "@unocss/preset-icons": "^0.45.21",
+    "@unocss/preset-uno": "^0.45.21",
+    "@vitejs/plugin-vue": "^3.1.0",
+    "@vitejs/plugin-vue-jsx": "^2.0.1",
     "prettier": "latest",
-    "turbo": "latest"
+    "sass": "^1.54.9",
+    "tippy.js": "^6.3.7",
+    "turbo": "latest",
+    "typescript": "^4.6.4",
+    "unbuild": "^0.8.11",
+    "unocss": "^0.45.21",
+    "unocss-preset-scrollbar": "^0.2.1",
+    "vite": "^3.1.1",
+    "vite-plugin-dts": "^1.5.0",
+    "vite-plugin-externals": "^0.5.1",
+    "vite-plugin-mocker": "^1.0.11",
+    "vite-tsconfig-paths": "^3.5.0",
+    "vitest": "^0.23.4",
+    "yuan-types": "workspace:^0.0.0"
   },
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
-  "packageManager": "pnpm@7.9.0"
+  "packageManager": "pnpm@7.9.0",
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.0.9",
+    "element-plus": "^2.2.16",
+    "pinia": "^2.0.22",
+    "vue": "^3.2.37",
+    "vue-tippy": "6.0.0-alpha.63",
+    "yuan-store": "workspace:^0.0.0"
+  }
 }
