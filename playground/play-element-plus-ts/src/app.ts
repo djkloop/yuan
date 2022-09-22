@@ -1,22 +1,26 @@
-import { IElement, IProject, IPage } from 'yuan-types'
+import { IProject, IPage, IMaterial, EProjectType } from 'yuan-types'
+import { SchemaKey } from "@formily/vue"
 import { uuid } from "./utils"
 
-export class Project implements IProject {
-  name: string = "New Project";
-  type: string = "web";
-  description: string = "New Project Description";
+
+export class Project {
+
+  id: string = uuid();
+  name: string = "默认项目名称";
+  title: string = '默认项目标题';
+  descrption: string = '默认项目描述';
+  type: EProjectType = EProjectType.WEB;
   pages: Page[] = [];
 
-  constructor() {
-  }
-
-  // 
+  // 创建一个项目
   static create(uProject?: IProject) {
-    // 创建一个项目
     const project = new Project();
     if (uProject) {
+      project.id = uProject.id
       project.name = uProject.name
-      project.description = uProject.description
+      project.title = uProject.title
+      project.descrption = uProject.descrption
+      project.type = uProject.type
       project.pages = uProject.pages.map(up => Page.create(up))
     } else {
       // 创建一个页面
@@ -26,7 +30,6 @@ export class Project implements IProject {
     }
     return project
   }
-
 
   // 添加页面
   addPage(page: Page) {
@@ -49,91 +52,101 @@ export class Project implements IProject {
   // 获取page json
   getPageJson() {
     return {
+      id: this.id,
       name: this.name,
-      description: this.description,
+      title: this.title,
+      description: this.descrption,
+      type: this.type,
       pages: this.pages.map(page => page.getPageJson())
     }
   }
 }
 
 // 项目中的每个页面类
-export class Page implements IPage {
+export class Page {
 
-  id: string = "PageID"
-  name: string = "New Page";
+  id: string = uuid()
+  name: string = "New Page Name";
+  title: string = "New Page Title";
   description: string = "New Page Description";
-  elements: PageElement[] = [];
+  children: PageChildSchema[] = [];
 
-  constructor() {
-
-  }
-
+  // 创建一个页面
   static create(uPage?: IPage) {
     const page = new Page()
     if (uPage) {
-      page.description = uPage.description
-      // 
       page.id = uPage.id
       page.name = uPage.name
-      page.elements = uPage.elements.map(element => PageElement.create(element))
+      page.title = uPage.title
+      page.description = uPage.description
+      page.children = uPage.children.map(child => PageChildSchema.create(child))
     }
     return page
   }
 
   // 添加一个元素
-  addElement(element: PageElement) {
-    this.elements.push(element)
+  addChild(child: PageChildSchema) {
+    this.children.push(child)
   }
 
   // 删除一个元素
-  removeElement(element: PageElement) {
-    const idx = this.elements.findIndex(e => e.id === element.id)
+  removeChild(child: PageChildSchema) {
+    const idx = this.children.findIndex(e => e.id === child.id)
     if (idx !== -1) {
-      this.elements.splice(idx, 1)
+      this.children.splice(idx, 1)
     }
   }
 
   // 插入一个元素
-  insertElement(index: number, element: PageElement) {
-    this.elements.splice(index, 0, element)
+  insertChild(index: number, child: PageChildSchema) {
+    this.children.splice(index, 0, child)
   }
 
-  public getPageJson() {
+  getPageJson() {
     return {
       id: this.id,
       name: this.name,
       description: this.description,
-      elements: this.elements.map(element => element.getElementJson())
+      children: this.children.map(child => child.getPageChildSchemaJson())
     }
   }
 
 }
 
 // 页面上的每个元素类
-export class PageElement implements IElement {
-  id: string = uuid();
-  name: string = "Element Name";
-  mId: number = 0;
-  mVersion: string = "Null Version";
-  constructor() { }
+export class PageChildSchema {
 
-  static create(uElement?: IElement) {
-    const element = new PageElement()
-    if (uElement) {
-      element.id = uElement.id
-      element.name = uElement.name
-      element.mId = uElement?.mId
-      element.mVersion = uElement?.mVersion
+  id: string = uuid();
+  name: SchemaKey | undefined = "Child Name";
+  version: string = "Null Version";
+  categoryId: string = ""
+  source: string = ''
+  sourceName: string = ''
+  icon: string = ''
+
+  static create(uChild?: IMaterial) {
+    const child = new PageChildSchema()
+    if (uChild) {
+      child.id = uChild.id
+      child.name = uChild.name
+      child.version = uChild.version
+      child.categoryId = uChild.categoryId
+      child.sourceName = uChild.sourceName
+      child.source = uChild.source
+      child.icon = uChild.icon
     }
-    return element
+    return child
   }
 
-  getElementJson() {
+  getPageChildSchemaJson(): IMaterial {
     return {
       id: this.id,
       name: this.name,
-      mId: this.mId,
-      mVersion: this.mVersion
+      version: this.version,
+      categoryId: this.categoryId,
+      source: this.source,
+      sourceName: this.sourceName,
+      icon: this.icon
     }
   }
 }

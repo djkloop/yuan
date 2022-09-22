@@ -5,7 +5,6 @@ import YuanPlugins from "./plugins"
 import YuanRegister from "./register"
 import { loadScript } from "./utils"
 import App from './App.vue'
-import { IMaterial } from "yuan-types"
 import { materialList } from "@/data"
 
 
@@ -21,13 +20,17 @@ function runApp(app: VueApp) {
   app.mount('#app')
 }
 
-const mSources = materialList.map(m => m.source)
+const mSources = Array.from(new Set(materialList.map(m => m.source))).filter(m => m)
 Promise.all(mSources.map(ms => loadScript(ms))).then(() => {
   const app = createApp(App)
+  const mapSourceName: { [key: string]: boolean } = {}
   materialList.forEach(m => {
-    if (window.YuanMicroComponents) {
-      const { render } = window.YuanMicroComponents[m.name]
-      app.component(m.name, render)
+    if (window.YuanMicroComponents && m.source) {
+      const { render } = window.YuanMicroComponents[m.sourceName]
+      if (!mapSourceName[m.sourceName]) {
+        app.component(m.sourceName, render)
+        mapSourceName[m.sourceName] = true
+      }
     }
   })
   runApp(app)

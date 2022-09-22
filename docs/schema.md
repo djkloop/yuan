@@ -10,32 +10,4 @@ interface ISchema {
   body?: ISchema[] // 子集
   [key: string]: any // 额外变量
 }
-
-// json schema
-const schema = {
-  type: "form",
-  data: {},
-  api: "",
-  body: [],
-  uiPrefix?: ""
-}
-
-// 百度 amis 的一个例子
-// https://aisuda.bce.baidu.com/amis/zh-CN/components/form/index#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95
-const baseJSONSchema = {
-  "type": "form",
-    "api": "/amis/api/mock2/form/saveForm",
-    "body": [
-      {
-        "type": "input-text",
-        "name": "name",
-        "label": "姓名："
-      },
-      {
-        "name": "email",
-        "type": "input-email",
-        "label": "邮箱："
-      }
-    ]
-}
 ```

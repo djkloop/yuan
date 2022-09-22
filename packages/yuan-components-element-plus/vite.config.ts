@@ -8,8 +8,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.ts',
-      name: 'YuanComponents',
-      fileName: format => `yuan.components.${format}.production.js`,
+      name: 'YuanComponentsElementPlus',
+      fileName: format => `yuan.components.element-plus.${format}.production.js`,
     },
     rollupOptions: {
       external: [

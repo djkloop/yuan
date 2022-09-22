@@ -1,0 +1,20 @@
+{
+  "name": "yuan-components-element-plus",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "umd:main": "dist/yuan.components.element-plus.umd.production.js",
+  "unpkg": "dist/yuan.components.element-plus.umd.production.js",
+  "jsdelivr": "dist/yuan.components.element-plus.umd.production.js",
+  "jsnext:main": "esm",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "yuan-core": "workspace:^0.0.0"
+  }
+}

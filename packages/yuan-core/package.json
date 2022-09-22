@@ -3,8 +3,19 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "umd:main": "dist/yuan.core.umd.production.js",
+  "unpkg": "dist/yuan.core.umd.production.js",
+  "jsdelivr": "dist/yuan.core.umd.production.js",
+  "jsnext:main": "esm",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
+  },
+  "dependencies": {
+    "ajv": "^8.11.0",
+    "vue": "^3.2.37"
   }
 }
