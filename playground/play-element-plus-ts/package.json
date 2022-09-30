@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "vite-plugin-mocker": "^1.0.11",
-    "vue-router": "^4.0.13"
+    "vue-router": "^4.0.13",
+    "yuan-components-element-plus": "workspace:^0.0.0"
   },
   "devDependencies": {
     "vite-plugin-pages": "^0.26.0"

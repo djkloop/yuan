@@ -4,6 +4,7 @@ import ElementPlusPlugin from './element-plus';
 import VueTippyPlugin from './vue-tippy';
 import VueRouterPlugin from './vue-router';
 import PiniaPlugin from "./pinia";
+import VueJsonSchemaForm from './yuan-components-element-plus';
 
 const YuanPlugins = {
   use(app: App): App {
@@ -11,6 +12,7 @@ const YuanPlugins = {
     app.use(VueRouterPlugin)
     app.use(ElementPlusPlugin)
     app.use(VueTippyPlugin)
+    app.use(VueJsonSchemaForm)
     return app
   },
 }

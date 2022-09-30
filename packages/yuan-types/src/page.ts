@@ -1,4 +1,4 @@
-import { IMaterial } from "yuan-types"
+import { IMaterial } from "./material"
 
 export interface IPage {
   /**

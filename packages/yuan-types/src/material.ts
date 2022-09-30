@@ -1,5 +1,3 @@
-import { ISchema } from "@formily/vue"
-
 export interface IMaterialHistory {
   /**
    * 每个物料的历史cdn地址
@@ -22,7 +20,7 @@ export interface IMaterialHistory {
 /**
  * 每个物料的属性
  */
-export interface IMaterial extends ISchema {
+export interface IMaterial {
   /**
    * 每个物料的id
    */

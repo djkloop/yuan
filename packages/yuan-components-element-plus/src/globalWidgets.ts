@@ -1,4 +1,4 @@
-import YuanSelect from "./YuanSelect"
+import { YuanSelect } from "./YuanSelect"
 
 // 全局widget
 // 需要特殊处理的组件

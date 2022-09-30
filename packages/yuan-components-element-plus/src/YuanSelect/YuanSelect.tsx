@@ -1,7 +1,7 @@
 import { ElOption, ElSelect } from "element-plus"
 import { defineComponent, PropType, useAttrs } from "vue"
 
-const YuanSelect = defineComponent({
+export const YuanSelect = defineComponent({
   name: 'YuanSelect',
   props: {
     enumOptions: {
@@ -25,5 +25,3 @@ const YuanSelect = defineComponent({
     }
   }
 })
-
-export default YuanSelect

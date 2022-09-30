@@ -8,13 +8,12 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.ts',
-      name: 'YuanComponentsElementPlus',
-      fileName: format => `yuan.components.element-plus.${format}.production.js`,
+      name: 'YuanTypes',
+      fileName: format => `yuan.types.${format}.production.js`,
     },
     rollupOptions: {
       external: [
         'vue',
-        'yuan-types',
         'element-plus',
         '@element-plus/icons-vue'
       ],

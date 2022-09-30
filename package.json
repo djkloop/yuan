@@ -31,6 +31,7 @@
     "tippy.js": "^6.3.7",
     "turbo": "latest",
     "typescript": "^4.6.4",
+    "typescript-plugin-css-modules": "^3.4.0",
     "unbuild": "^0.8.11",
     "unocss": "^0.45.21",
     "unocss-preset-scrollbar": "^0.2.1",
@@ -48,13 +49,14 @@
   "packageManager": "pnpm@7.9.0",
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.9",
+    "@emotion/css": "^11.10.0",
     "element-plus": "^2.2.16",
     "pinia": "^2.0.22",
     "react-dnd-html5-backend": "^16.0.1",
     "vue": "^3.2.37",
     "vue-tippy": "6.0.0-alpha.63",
     "vue3-dnd": "^2.0.2",
-    "yuan-components": "workspace:^0.0.0",
+    "yuan-components-element-plus": "workspace:^0.0.0",
     "yuan-store": "workspace:^0.0.0"
   }
 }

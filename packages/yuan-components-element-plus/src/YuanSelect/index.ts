@@ -1,1 +1,1 @@
-export default "./YuanSelect"
+export * from "./YuanSelect"

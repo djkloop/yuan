@@ -1,15 +1,17 @@
 {
-  "name": "shared",
+  "name": "yuan-shared",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "umd:main": "dist/yuan.shared.umd.production.js",
+  "unpkg": "dist/yuan.shared.umd.production.js",
+  "jsdelivr": "dist/yuan.shared.umd.production.js",
+  "jsnext:main": "esm",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "typescript": "^4.6.4",
-    "vite": "^3.1.0"
+    "build": "vite build"
   }
 }
