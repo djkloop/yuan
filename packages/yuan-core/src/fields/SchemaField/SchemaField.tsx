@@ -9,6 +9,14 @@ const SchemaField = defineComponent({
   setup(props) {
     const schema = retrieveSchema(props.schema, props.rootSchema)
     console.log(schema, ' SchemaField ')
+
+    //
+    const curProps = { ...props, schema }
+
+    if (Object.keys(schema).length === 0) return null
+
+    //???
+    const { field: fieldComponent, fieldProps } = getUiField()
   }
 })
 
